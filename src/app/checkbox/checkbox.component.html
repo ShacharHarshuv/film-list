@@ -1,0 +1,5 @@
+<button
+  class="checkbox"
+  [class.--checked]="isChecked$ | async"
+  (click)="toggleCheck()"
+></button>

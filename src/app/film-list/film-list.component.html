@@ -1,0 +1,13 @@
+<ul *ngIf="filmList$ | async; else loadingTemplate">
+  <li *ngFor="let film of (filmList$ | async)">
+    <app-checkbox
+      class="checkbox"
+      [isChecked]="film ? favoriteSet.has(film.episode_id) : false"
+      (onIsCheckedChanged)="film && markFilm(film.episode_id, $event)"
+    ></app-checkbox>
+    <span>{{ film.title }}</span>
+  </li>
+</ul>
+<ng-template #loadingTemplate>
+  Loading...
+</ng-template>
